@@ -6,7 +6,7 @@ from sklearn.pipeline import make_pipeline
 import joblib
 
 # Load dataset
-data = pd.read_csv('IMDB Dataset.csv')  # Replace with your dataset
+data = pd.read_csv("./data/IMDB Dataset.csv")  # Replace with your dataset
 data['sentiment'] = data['sentiment'].map({'positive': 1, 'negative': 0})
 
 # Split data
