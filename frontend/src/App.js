@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SentimentForm from './components/SentimentForm';
 import SentimentResult from './components/SentimentResult';
 import './App.css';
+//app.css
 
 function App() {
   const [sentiment, setSentiment] = useState('');
