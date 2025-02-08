@@ -8,79 +8,143 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow: hidden;
+  animation: bgAnimation 8s infinite alternate ease-in-out;
+}
+
+/* Background Animation */
+@keyframes bgAnimation {
+  0% {
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  }
+  100% {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  }
 }
 
 .App {
   text-align: center;
   padding: 30px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Floating Animation */
 .App:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
 textarea {
   width: 320px;
   height: 120px;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   border: 2px solid #007bff;
   font-size: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-textarea:focus {
-  border-color: #ff7eb3;
-  box-shadow: 0 0 10px rgba(255, 126, 179, 0.5);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+  background: rgba(255, 255, 255, 0.5);
   outline: none;
 }
 
+/* Focus Effect */
+textarea:focus {
+  border-color: #ff7eb3;
+  box-shadow: 0 0 15px rgba(255, 126, 179, 0.6);
+  transform: scale(1.02);
+}
+
+/* Button Styling */
 button {
-  padding: 12px 24px;
+  padding: 14px 26px;
   background: linear-gradient(135deg, #007bff, #00d4ff);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
 }
 
+/* Button Hover Animation */
 button:hover {
   background: linear-gradient(135deg, #0056b3, #0094ff);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-button::after {
+/* Ripple Effect */
+button::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300%;
-  height: 300%;
+  width: 200%;
+  height: 200%;
   background: rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
 }
 
-button:active::after {
+button:active::before {
   transform: translate(-50%, -50%) scale(1);
   opacity: 0;
 }
 
+/* Floating Particles */
+@keyframes floatingParticles {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: floatingParticles 3s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+  left: 20%;
+  top: 30%;
+  animation-duration: 2s;
+}
+
+.particle:nth-child(2) {
+  left: 50%;
+  top: 50%;
+  animation-duration: 3.5s;
+}
+
+.particle:nth-child(3) {
+  left: 80%;
+  top: 70%;
+  animation-duration: 2.8s;
+}
+
+/* Fade In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -89,5 +153,5 @@ button:active::after {
 }
 
 textarea, button {
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 1s ease-out;
 }
