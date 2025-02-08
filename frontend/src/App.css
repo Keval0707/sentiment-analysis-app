@@ -12,7 +12,7 @@ body {
   animation: bgAnimation 8s infinite alternate ease-in-out;
 }
 
-/* Background Animation */
+/* Dynamic Background Animation */
 @keyframes bgAnimation {
   0% {
     background: linear-gradient(135deg, #74ebd5, #acb6e5);
@@ -24,120 +24,174 @@ body {
 
 .App {
   text-align: center;
-  padding: 30px;
+  padding: 40px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px);
   border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out, floatUp 3s infinite ease-in-out;
   position: relative;
   overflow: hidden;
 }
 
-/* Floating Animation */
+/* Floating Hover Effect */
 .App:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-textarea {
-  width: 320px;
-  height: 120px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #007bff;
-  font-size: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
-  background: rgba(255, 255, 255, 0.5);
-  outline: none;
-}
-
-/* Focus Effect */
-textarea:focus {
-  border-color: #ff7eb3;
-  box-shadow: 0 0 15px rgba(255, 126, 179, 0.6);
-  transform: scale(1.02);
-}
-
-/* Button Styling */
-button {
-  padding: 14px 26px;
-  background: linear-gradient(135deg, #007bff, #00d4ff);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Button Hover Animation */
-button:hover {
-  background: linear-gradient(135deg, #0056b3, #0094ff);
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Ripple Effect */
-button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.5s ease;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-}
-
-button:active::before {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0;
-}
-
-/* Floating Particles */
-@keyframes floatingParticles {
-  0% {
+/* Floating Up and Down Animation */
+@keyframes floatUp {
+  0%, 100% {
     transform: translateY(0);
-    opacity: 0.7;
   }
-  100% {
-    transform: translateY(-20px);
-    opacity: 0;
+  50% {
+    transform: translateY(-10px);
   }
 }
 
+/* Animated Particles for Glowing Effect */
 .particle {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.4);
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  animation: floatingParticles 3s infinite ease-in-out;
+  animation: floatingParticles 4s infinite ease-in-out;
 }
 
 .particle:nth-child(1) {
-  left: 20%;
-  top: 30%;
-  animation-duration: 2s;
+  left: 10%;
+  top: 20%;
+  animation-duration: 3s;
 }
 
 .particle:nth-child(2) {
   left: 50%;
   top: 50%;
-  animation-duration: 3.5s;
+  animation-duration: 4s;
 }
 
 .particle:nth-child(3) {
-  left: 80%;
+  left: 85%;
   top: 70%;
-  animation-duration: 2.8s;
+  animation-duration: 5s;
+}
+
+/* Particle Animation */
+@keyframes floatingParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-40px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Stylish Textarea */
+textarea {
+  width: 340px;
+  height: 140px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #007bff;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+  background: rgba(255, 255, 255, 0.6);
+  outline: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Glowing Effect on Focus */
+textarea:focus {
+  border-color: #ff7eb3;
+  box-shadow: 0 0 20px rgba(255, 126, 179, 0.6);
+  transform: scale(1.05);
+}
+
+/* Button Styling */
+button {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Button Hover Animation */
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #0094ff);
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Neon Glow Effect */
+button:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.4s ease-in-out;
+}
+
+/* Glowing Button on Click */
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+}
+
+/* Wave Animation */
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.6s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
+/* Neon Border Pulse */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+  }
+}
+
+.App {
+  animation: neonPulse 2.5s infinite ease-in-out;
 }
 
 /* Fade In Animation */
